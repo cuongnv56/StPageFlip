@@ -34,8 +34,8 @@
   },
   "scripts": {
     "eslint": "eslint . --ext .ts",
-    "build-global": "SET NODE_OPTIONS=--openssl-legacy-provider && npx webpack --progress=profile",
-    "build": "rollup -c"
+    "build-global": "SET NODE_OPTIONS=--openssl-legacy-provider && npx webpack",
+    "build": "rollup -c --bundleConfigAsCjs"
   },
   "keywords": [
     "typescript",
