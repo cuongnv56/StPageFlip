@@ -71,7 +71,7 @@ export abstract class Page {
      * 
      * @param {PageOrientation} orient - Static page orientation
      */
-    public abstract simpleDraw(orient: PageOrientation): void;
+    public abstract simpleDraw(orient: PageOrientation, doClip?: boolean): void;
 
     /**
      * Render dynamic page, using state

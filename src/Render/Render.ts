@@ -61,7 +61,9 @@ export abstract class Render {
     protected leftPage: Page = null;
     /** Right static book page */
     protected rightPage: Page = null;
-
+    
+    /** Source page of the page we're flipping */
+    protected currentPage: Page;
     /** Page currently flipping */
     protected flippingPage: Page = null;
     /** Next page at the time of flipping */

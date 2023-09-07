@@ -61,6 +61,33 @@ export class FlipCalculation {
     }
 
     /**
+     * Get the crop area for the page that will be duplicated and flipped.
+     *
+     * @returns {Point[]} Polygon page
+     */
+    public getCurrentClipArea(): Point[] {
+        const result = [];
+
+        const startPoint =
+            this.topIntersectPoint !== null ? this.topIntersectPoint : { x: this.pageWidth, y: 0 };
+
+        result.push(startPoint);
+        result.push({ x: 0, y: 0 });
+        result.push({ x: 0, y: this.pageHeight });
+        result.push(
+            this.bottomIntersectPoint
+                ? this.bottomIntersectPoint
+                : { x: this.pageWidth, y: this.pageHeight }
+        );
+        if (this.sideIntersectPoint) {
+            result.push(this.sideIntersectPoint);
+        }
+        result.push(startPoint);
+
+        return result;
+    }
+
+    /**
      * Get the crop area for the flipping page
      * 
      * @returns {Point[]} Polygon page
